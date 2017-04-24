@@ -35,6 +35,14 @@ int r;
 int g;
 int b;
 
+float percent_count;
+float total_count;
+float percent;
+int block_count;
+int block_div;
+int blocks;
+int blank_count;
+int pass_number;
 
 
 
@@ -61,13 +69,13 @@ int main(int argc, char* argv[]) {
         output = "images/" + to_string(width) + "x" + to_string(height) + "_s=" + to_string(spread) + "_p=" + to_string(passes) + ".ppm";
     }
     
-
     
-//    if(argc > 6){
-//        if(strcmp(argv[6], "v") == 0){
-//            verbose = true;
-//        }
-//    }
+    
+    //    if(argc > 6){
+    //        if(strcmp(argv[6], "v") == 0){
+    //            verbose = true;
+    //        }
+    //    }
     
     srand((int) time(NULL));
     
@@ -85,6 +93,15 @@ int main(int argc, char* argv[]) {
 
 void generate_image(int w, int h, int spread, int passes, string output){
     
+    percent_count = 0;
+    total_count = w * h * (passes + 1);
+    blocks = 40;
+    block_div = floor(total_count / blocks);
+    block_count = 0;
+    
+    pass_number = 1;
+    
+    
     Color s(r, g, b);
     
     int m, m_r, m_g, m_b;
@@ -98,7 +115,23 @@ void generate_image(int w, int h, int spread, int passes, string output){
     
     
     for(int y = 0; y < h; y++){
+        percent = ceil((percent_count / total_count) * 100);
+        // cout << "percent_count: " << percent_count << " | total_count: " << total_count << " | percent: " << percent << endl;
+        
+        if(percent_count > block_div * block_count + 1){
+            block_count++;
+            int blank_count = blocks - block_count;
+            
+            cout << '\r' << "[";
+            for(int i = 0; i < block_count; i++){ cout << "█"; }
+            for(int i = 0; i < blank_count; i++){ cout << " "; }
+            cout << "]" << percent << "% (pass #" << pass_number << ")" << flush;
+            
+        }
+        
+        
         for(int x = 0; x < w; x++){
+            percent_count++;
             
             
             if(y == 0 && x == 0){
@@ -177,11 +210,21 @@ void generate_image(int w, int h, int spread, int passes, string output){
     
     
     for(int i = 1; i < passes + 1; i++){
-        cout << '\r' << "Making pass #" << i << flush;
+        // cout << '\r' << "Making pass #" << i << flush;
+        pass_number++;
         make_pass(w, h, spread, pixel_array);
     }
+    
+    percent = ceil((percent_count / total_count) * 100);
+    
+    cout << '\r' << "[";
+    for(int i = 0; i < block_count; i++){ cout << "█"; }
+    for(int i = 0; i < blank_count; i++){ cout << " "; }
+    cout << "]" << "100% (complete)" << flush;
+    
+    
     cout << endl;
-   
+    
     
     
     
@@ -213,7 +256,21 @@ void make_pass(int w, int h, int spread, Color **&pixel_array){
     vector<Color> surrounding;
     
     for(int y = 0; y < h; y++){
+        percent = ceil((percent_count / total_count) * 100);
+        
+        if(percent_count > block_div * block_count + 1){
+            block_count++;
+            blank_count = blocks - block_count;
+            
+            cout << '\r' << "[";
+            for(int i = 0; i < block_count; i++){ cout << "█"; }
+            for(int i = 0; i < blank_count; i++){ cout << " "; }
+            cout << "]" << percent << "% (pass #" << pass_number << ")" << flush;
+            
+        }
+        
         for(int x = 0; x < w; x++){
+            percent_count++;
             
             
             if(y == 0 && x == 0){
@@ -534,7 +591,7 @@ void make_pass(int w, int h, int spread, Color **&pixel_array){
             surrounding.shrink_to_fit();
         }
     }
-
+    
     
 }
 
