@@ -1,6 +1,6 @@
 # Image Generation Test
 
-## Command Line Parameters
+### Command Line Parameters
 
 usage: ./gen.exe -w [width] -h [height] -s [spread] -p [passes] -r [red] -g [green] -b [blue]
 
@@ -19,3 +19,7 @@ modifiers:
 	-g	starting RGB green value
 
 	-b	starting RGB blue value
+
+### Examples
+
+[[http://i.imgur.com/lEzhFX4.png|alt=512x512_s=10_p=1]]
