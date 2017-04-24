@@ -25,3 +25,7 @@ modifiers:
 512x512 image with a spread of 10 and 1 pass
 
 ![512x512, spread: 10, passes: 1](http://i.imgur.com/lEzhFX4.png)
+
+2048x1024 image with a spread of 15 and 1 pass
+
+![2048x1024, spread: 15, passes: 1](http://i.imgur.com/WvRTO23.png)
