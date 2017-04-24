@@ -22,4 +22,6 @@ modifiers:
 
 ### Examples
 
-[[http://i.imgur.com/lEzhFX4.png|alt=512x512_s=10_p=1]]
+512x512 image with a spread of 10 and 1 pass
+
+![512x512, spread: 10, passes: 1](http://i.imgur.com/lEzhFX4.png)
