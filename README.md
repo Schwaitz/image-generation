@@ -2,7 +2,7 @@
 
 ### Command Line Parameters
 
-usage: ./gen.exe -w [width] -h [height] -s [spread] -p [passes] -r [red] -g [green] -b [blue]
+usage: ./gen.exe -w [width] -h [height] -s [spread] -p [passes] -r [red] -g [green] -b [blue] -o [output.ppm]
 
 modifiers:
 
@@ -19,6 +19,8 @@ modifiers:
 	-g	starting RGB green value
 
 	-b	starting RGB blue value
+	
+	-o	output file name (ending with .ppm)
 
 ### Examples
 
