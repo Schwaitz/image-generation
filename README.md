@@ -22,6 +22,10 @@ modifiers:
 
 ### Examples
 
+512x512 image with a spread of 18 and 1 pass
+
+![512x512, spread: 18, passes: 1](http://i.imgur.com/lEzhFX4.png)
+
 2048x1024 image with a spread of 10 and 1 pass
 
 ![2048x1024, spread: 10, passes: 1](http://i.imgur.com/ZkhNOtI.png)
@@ -29,10 +33,6 @@ modifiers:
 2048x1024 image with a spread of 10 and 10 passes
 
 ![2048x1024, spread: 10, passes: 10](http://i.imgur.com/NmaDUPL.png)
-
-512x512 image with a spread of 18 and 1 pass
-
-![512x512, spread: 18, passes: 1](http://i.imgur.com/lEzhFX4.png)
 
 1024x1024 image with a spread of 30 and 1 pass
 
