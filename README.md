@@ -24,7 +24,7 @@ modifiers:
 
 2048x1024 image with a spread of 10 and 1 pass
 
-![512x512, spread: 10, passes: 1](http://i.imgur.com/LzX4pGI.png)
+![2048x1024, spread: 10, passes: 1](http://i.imgur.com/ZkhNOtI.png)
 
 2048x1024 image with a spread of 10 and 10 passes
 
