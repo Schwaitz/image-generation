@@ -71,12 +71,6 @@ int main(int argc, char* argv[]) {
     
     
     
-    //    if(argc > 6){
-    //        if(strcmp(argv[6], "v") == 0){
-    //            verbose = true;
-    //        }
-    //    }
-    
     srand((int) time(NULL));
     
     
@@ -161,6 +155,9 @@ void generate_image(int w, int h, int spread, int passes, string output){
                 
                 o = pixel_array[x][y - 1];
                 Color n(o.r + m_r, o.g + m_g, o.b + m_b);
+                if(verbose == true){
+                    printf("First Pass: Setting pixel (%d, %d) to RGB(%d, %d, %d)\n", x, y, n.r, n.g, n.b);
+                }
                 pixel_array[x][y] = n;
             }
             
@@ -610,6 +607,7 @@ void validate_arguments(int argc, char* argv[]){
     }
     
     for(int i = 1; i < argc - 1; i += 2){
+        if(strcmp(argv[i], "-v") == 0){ verbose = true; i = i - 1; continue; }
         if(strcmp(argv[i], "-w") == 0){ width = stoi(argv[i + 1]); continue; }
         if(strcmp(argv[i], "-h") == 0){ height = stoi(argv[i + 1]); continue; }
         if(strcmp(argv[i], "-s") == 0){ spread = stoi(argv[i + 1]); continue; }
@@ -618,6 +616,10 @@ void validate_arguments(int argc, char* argv[]){
         if(strcmp(argv[i], "-g") == 0){ g = stoi(argv[i + 1]); continue; }
         if(strcmp(argv[i], "-b") == 0){ b = stoi(argv[i + 1]); continue; }
         if(strcmp(argv[i], "-o") == 0){ output = argv[i + 1]; output = "images/" + output; continue; }
+    }
+    
+    if(strcmp(argv[argc - 1], "-v") == 0){
+        verbose = true;
     }
     
     

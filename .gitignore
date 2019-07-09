@@ -1,3 +1,5 @@
 .DS_Store
 Image-Generation.xcodeproj
 images/
+gen.out
+gen.exe
